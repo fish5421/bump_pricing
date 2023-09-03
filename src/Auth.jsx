@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { supabase } from './supabaseClient'
-import anime from 'animejs';
-
 
 export default function Auth() {
     const [loading, setLoading] = useState(false);
@@ -11,7 +9,6 @@ export default function Auth() {
         event.preventDefault();
         setLoading(true);
         const { error } = await supabase.auth.signInWithOtp({ email });
-
         if (error) {
             alert(error.error_description || error.message);
         } else {
@@ -20,80 +17,33 @@ export default function Auth() {
         setLoading(false);
     };
 
-    useEffect(() => {
-        function randomValues() {
-            anime({
-                targets: '.square, .circle, .triangle',
-                translateX: function () {
-                    return anime.random(-500, 500);
-                },
-                translateY: function () {
-                    return anime.random(-300, 300);
-                },
-                rotate: function () {
-                    return anime.random(0, 360);
-                },
-                scale: function () {
-                    return anime.random(.2, 2);
-                },
-                duration: 1000,
-                easing: 'easeInOutQuad',
-                complete: randomValues,
-            });
-        }
-
-        randomValues();
-    }, []);
-
     return (
-        <div className='animated-background'>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-
-            <div class="triangle"></div>
-            <div class="triangle"></div>
-            <div class="triangle"></div>
-            <div class="triangle"></div>
-            <div class="triangle"></div>
-
-            <div className='auth-container'>
-                <section className="bg-gray-900 dark:bg-gray-900 md:h-screen flex flex-col items-center justify-center px-6 py-8 w-screen">
-                    <div className="w-full bg-white dark:bg-gray-800 dark:border dark:border-gray-700 rounded-lg shadow sm:max-w-md">
-                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8 bg-cyan-700">
-                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
-                                Sign in to your account
-                            </h1>
-                            <form onSubmit={handleLogin} className="space-y-4 md:space-y-6">
-                                <div>
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-black">Your email</label>
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        placeholder="name@company.com"
-                                        required
-                                        className="text-black bg-gray-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" disabled={loading}>
-                                        {loading ? 'Loading' : 'Send magic link'}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+        <div className="flex items-center justify-center min-h-screen w-screen bg-gray-900">
+            <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 lg:p-10 space-y-4">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                    Sign in to your account
+                </h1>
+                <form onSubmit={handleLogin} className="space-y-4">
+                    <div>
+                        <label htmlFor="email" className="block mb-2 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-900">
+                            Your email
+                        </label>
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="name@company.com"
+                            required
+                            className="w-full p-2 sm:p-3 md:p-4 lg:p-5 border rounded-lg focus:ring-primary-600 focus:border-primary-600"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
-                </section>
+                    <div>
+                        <button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 font-medium text-white" disabled={loading}>
+                            {loading ? 'Loading' : 'Send magic link'}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );
