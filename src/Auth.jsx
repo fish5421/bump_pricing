@@ -33,7 +33,7 @@ export default function Auth() {
                             type="email"
                             placeholder="name@company.com"
                             required
-                            className="w-full p-2 sm:p-3 md:p-4 lg:p-5 border rounded-lg focus:ring-primary-600 focus:border-primary-600"
+                            className=" text-black w-full p-2 sm:p-3 md:p-4 lg:p-5 border rounded-lg focus:ring-primary-600 focus:border-primary-600"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
