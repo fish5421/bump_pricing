@@ -106,7 +106,7 @@ export default function Account({ session }) {
         ) : (
             <>
                 <form onSubmit={updateProfile} className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100">
-                    <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
+                    <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3 max-h-[90vh] overflow-y-auto">
                         <div className="mb-4 w-full text-black">
                             <label htmlFor="email" className="text-lg font-medium text-gray-600">Email</label>
                             <input id="email" type="text" value={session.user.email} disabled className="w-full flowbite-input" />
@@ -154,6 +154,5 @@ export default function Account({ session }) {
             </>
         )
     );
-
 
 }
