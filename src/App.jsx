@@ -26,8 +26,7 @@ function App() {
         <Routes>
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/cancel" element={<CancelPage />} />
-          <Route path="/account" element={<Account />} />
-          {/* <Route path="/" element={!session ? <Auth /> : <Account key={session.user.id} session={session} />} /> */}
+          <Route path="/" element={!session ? <Auth /> : <Account key={session.user.id} session={session} />} />
         </Routes>
       </div>
     </Router>
