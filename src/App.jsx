@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="flex justify-center items-center h-screen w-screen bg-gray-100">
         <Routes>
           <Route path="/success" element={<SuccessPage />} />
