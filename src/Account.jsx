@@ -3,6 +3,7 @@ import { supabase } from './supabaseClient';
 import SubscriptionPage from './SubscriptionPage'; // Make sure the path is correct
 
 
+
 export default function Account({ session }) {
     const [loading, setLoading] = useState(true);
     const [username, setUsername] = useState(null);
