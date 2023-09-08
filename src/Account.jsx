@@ -1,7 +1,7 @@
 import { useState, useEffect, Tooltip } from 'react';
 import { supabase } from './supabaseClient';
 import SubscriptionPage from './SubscriptionPage'; // Make sure the path is correct
-import StepWizard from 'react-step-wizard';  // Assuming you've added this package for step-by-step flow
+import { Tooltip } from 'antd';
 
 
 
@@ -108,33 +108,34 @@ export default function Account({ session }) {
             <SubscriptionPage session={session} />
         ) : (
             <>
-                <header className="bg-blue-500 text-white text-center py-4">
-                    Darrel's Community
-                </header>
+                <h1>Darrel's Community</h1>  {/* Header */}
                 <form onSubmit={updateProfile} className="flex flex-col items-center justify-center h-screen w-full bg-gray-100 overflow-hidden">
                     <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
                         {/* Email */}
                         <div className="mb-4 w-full text-black">
                             <label htmlFor="email" className="text-lg font-medium text-gray-600">
-                                Email <Tooltip title="We need your email to send you updates and account-related information.">❗️</Tooltip>
+                                Email <Tooltip title="Your email is used for authentication and notifications."><span style={{ color: 'red' }}>❗️</span></Tooltip>
                             </label>
                             <input id="email" type="text" value={session.user.email} disabled className="w-full flowbite-input" />
                         </div>
+
                         {/* Username */}
                         <div className="mb-4 w-full text-black">
                             <label htmlFor="username" className="text-lg font-medium text-gray-600">
-                                Name <Tooltip title="Your name helps personalize your experience.">❗️</Tooltip>
+                                Name <Tooltip title="Your name helps personalize your experience."><span style={{ color: 'red' }}>❗️</span></Tooltip>
                             </label>
                             <input id="username" type="text" required value={username || ''} onChange={(e) => setUsername(e.target.value)} className="w-full flowbite-input" />
                         </div>
-                        {/* Business Name */}
+
+                        {/* Business Name (Optional) */}
                         <div className="mb-4 w-full text-black">
                             <label htmlFor="businessName" className="text-lg font-medium text-gray-600">
-                                Business Name <Tooltip title="Optional. Add your business name for business-related services.">❗️</Tooltip>
+                                Business Name <Tooltip title="Optional: This helps us understand your business needs."><span style={{ color: 'red' }}>❗️</span></Tooltip>
                             </label>
                             <input id="businessName" type="text" value={businessName || ''} onChange={(e) => setBusinessName(e.target.value)} className="w-full flowbite-input" />
                         </div>
-                        {/* Action buttons */}
+
+                        {/* Rest of your form */}
                         <div className="mb-4 w-full flex flex-col sm:flex-row sm:justify-between gap-9">
                             <button type="submit" disabled={loading} className="mb-2 sm:mb-0 w-full sm:w-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5">
                                 {loading ? 'Loading ...' : 'Update'}
@@ -144,7 +145,11 @@ export default function Account({ session }) {
                             </button>
                         </div>
                         <div className="mt-6 w-full">
-                            <button type="button" className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5" onClick={handleSubscriptionClick}>
+                            <button
+                                type="button"
+                                className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5"
+                                onClick={handleSubscriptionClick}
+                            >
                                 {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
                             </button>
                         </div>
