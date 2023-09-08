@@ -105,22 +105,22 @@ export default function Account({ session }) {
 
     return (
         <>
-            <h1 className="text-2xl mb-4 text-center">Darrel's Community</h1>
+            <h1 className="text-2xl mb-4 text-center text-black">Darrel's Community</h1>
             {showSubscriptionPage ? (
                 <SubscriptionPage session={session} />
             ) : (
                 <form onSubmit={updateProfile} className="flex flex-col items-center justify-center h-screen w-full bg-gray-100 overflow-hidden">
                     <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
-                        <div className="mb-4 w-full text-black flex">
+                            <div className="mb-4 w-full text-black flex items-center">
                             <label htmlFor="email" className="text-lg font-medium text-gray-600 w-1/2">Email</label>
                             <Tooltip title="Your email is required for account identification.">
-                                <span className="cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16" fill="red">
-                                        <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
-                                        <path d="M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z" />
-                                        <rect x="11" y="17" width="2" height="2" rx="1" />
-                                    </svg>
-                                </span>
+                                    <span className="cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16" fill="red">
+                                            <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
+                                            <path d="M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z" />
+                                            <rect x="11" y="17" width="2" height="2" rx="1" />
+                                        </svg>
+                                    </span>
                             </Tooltip>
                             <input id="email" type="text" value={session.user.email} disabled className="w-1/2 flowbite-input" />
                         </div>
