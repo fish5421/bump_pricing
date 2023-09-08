@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Tooltip } from 'react';
 import { supabase } from './supabaseClient';
 import SubscriptionPage from './SubscriptionPage'; // Make sure the path is correct
 import StepWizard from 'react-step-wizard';  // Assuming you've added this package for step-by-step flow
