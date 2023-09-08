@@ -104,38 +104,47 @@ export default function Account({ session }) {
 
 
     return (
-        showSubscriptionPage ? (
-            <SubscriptionPage session={session} />
-        ) : (
-            <>
-                <h1 className="text-2xl mb-4">Darrel's Community</h1>
+        <>
+            <h1 className="text-2xl mb-4 text-center">Darrel's Community</h1>
+            {showSubscriptionPage ? (
+                <SubscriptionPage session={session} />
+            ) : (
                 <form onSubmit={updateProfile} className="flex flex-col items-center justify-center h-screen w-full bg-gray-100 overflow-hidden">
                     <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
-
-                        {/* Email */}
-                        <div className="mb-4 w-full text-black flex flex-col sm:flex-row">
-                            <label htmlFor="email" className="text-lg font-medium text-gray-600 flex-1">
-                                Email <Tooltip title="Your email is used for authentication and notifications."><span style={{ color: 'red' }}>❗️</span></Tooltip>
-                            </label>
-                            <input id="email" type="text" value={session.user.email} disabled className="w-full flowbite-input flex-1" />
+                        <div className="mb-4 w-full text-black flex">
+                            <label htmlFor="email" className="text-lg font-medium text-gray-600 w-1/2">Email</label>
+                            <Tooltip title="Your email is required for account identification.">
+                                <span className="text-red-600 cursor-pointer">!</span>
+                            </Tooltip>
+                            <input id="email" type="text" value={session.user.email} disabled className="w-1/2 flowbite-input" />
                         </div>
-
-                        {/* Username */}
-                        <div className="mb-4 w-full text-black flex flex-col sm:flex-row">
-                            <label htmlFor="username" className="text-lg font-medium text-gray-600 flex-1">
-                                Name <Tooltip title="Your name helps personalize your experience."><span style={{ color: 'red' }}>❗️</span></Tooltip>
-                            </label>
-                            <input id="username" type="text" required value={username || ''} onChange={(e) => setUsername(e.target.value)} className="w-full flowbite-input flex-1" />
+                        <div className="mb-4 w-full text-black flex">
+                            <label htmlFor="username" className="text-lg font-medium text-gray-600 w-1/2">Name</label>
+                            <Tooltip title="Your name helps us personalize your experience.">
+                                <span className="text-red-600 cursor-pointer">!</span>
+                            </Tooltip>
+                            <input
+                                id="username"
+                                type="text"
+                                required
+                                value={username || ''}
+                                onChange={(e) => setUsername(e.target.value)}
+                                className="w-1/2 flowbite-input"
+                            />
                         </div>
-
-                        {/* Business Name (Optional) */}
-                        <div className="mb-4 w-full text-black flex flex-col sm:flex-row">
-                            <label htmlFor="businessName" className="text-lg font-medium text-gray-600 flex-1">
-                                Business Name <Tooltip title="Optional: This helps us understand your business needs."><span style={{ color: 'red' }}>❗️</span></Tooltip>
-                            </label>
-                            <input id="businessName" type="text" value={businessName || ''} onChange={(e) => setBusinessName(e.target.value)} className="w-full flowbite-input flex-1" />
+                        <div className="mb-4 w-full text-black flex">
+                            <label htmlFor="businessName" className="text-lg font-medium text-gray-600 w-1/2">Business Name (Optional)</label>
+                            <Tooltip title="Business name is optional but can help in business-related services.">
+                                <span className="text-red-600 cursor-pointer">!</span>
+                            </Tooltip>
+                            <input
+                                id="businessName"
+                                type="text"
+                                value={businessName || ''}
+                                onChange={(e) => setBusinessName(e.target.value)}
+                                className="w-1/2 flowbite-input"
+                            />
                         </div>
-
                         {/* Buttons */}
                         <div className="mb-4 w-full flex flex-col sm:flex-row sm:justify-between gap-9">
                             <button type="submit" disabled={loading} className="mb-2 sm:mb-0 w-full sm:w-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5">
@@ -156,9 +165,10 @@ export default function Account({ session }) {
                                 {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
                             </button>
                         </div>
+
                     </div>
                 </form>
-            </>
-        )
+            )}
+        </>
     );
 };
