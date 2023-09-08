@@ -114,14 +114,26 @@ export default function Account({ session }) {
                         <div className="mb-4 w-full text-black flex">
                             <label htmlFor="email" className="text-lg font-medium text-gray-600 w-1/2">Email</label>
                             <Tooltip title="Your email is required for account identification.">
-                                <span className="text-red-600 cursor-pointer">!</span>
+                                <span className="cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16" fill="red">
+                                        <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
+                                        <path d="M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z" />
+                                        <rect x="11" y="17" width="2" height="2" rx="1" />
+                                    </svg>
+                                </span>
                             </Tooltip>
                             <input id="email" type="text" value={session.user.email} disabled className="w-1/2 flowbite-input" />
                         </div>
                         <div className="mb-4 w-full text-black flex">
                             <label htmlFor="username" className="text-lg font-medium text-gray-600 w-1/2">Name</label>
                             <Tooltip title="Your name helps us personalize your experience.">
-                                <span className="text-red-600 cursor-pointer">!</span>
+                                <span className="cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16" fill="red">
+                                        <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
+                                        <path d="M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z" />
+                                        <rect x="11" y="17" width="2" height="2" rx="1" />
+                                    </svg>
+                                </span>
                             </Tooltip>
                             <input
                                 id="username"
@@ -135,7 +147,13 @@ export default function Account({ session }) {
                         <div className="mb-4 w-full text-black flex">
                             <label htmlFor="businessName" className="text-lg font-medium text-gray-600 w-1/2">Business Name (Optional)</label>
                             <Tooltip title="Business name is optional but can help in business-related services.">
-                                <span className="text-red-600 cursor-pointer">!</span>
+                                <span className="cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16" fill="red">
+                                        <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
+                                        <path d="M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z" />
+                                        <rect x="11" y="17" width="2" height="2" rx="1" />
+                                    </svg>
+                                </span>
                             </Tooltip>
                             <input
                                 id="businessName"
