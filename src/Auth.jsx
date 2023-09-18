@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { supabase } from './supabaseClient'
+import logo from '../src/assets/logo.png';
+import { message, notification } from 'antd';
+
+
 
 export default function Auth() {
     const [loading, setLoading] = useState(false);
@@ -10,40 +14,57 @@ export default function Auth() {
         setLoading(true);
         const { error } = await supabase.auth.signInWithOtp({ email });
         if (error) {
-            alert(error.error_description || error.message);
+            notification['error']({
+                message: 'Login Failed',
+                description: error.error_description || error.message,
+                duration: 4,
+            });
         } else {
-            alert('Check your email for the login link!');
+            message.success('Check your email for the login link!', 4);
         }
         setLoading(false);
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen w-screen bg-gray-900">
-            <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 lg:p-10 space-y-4">
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-                    Sign in to your account
-                </h1>
-                <form onSubmit={handleLogin} className="space-y-4">
-                    <div>
-                        <label htmlFor="email" className="block mb-2 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-900">
-                            Your email
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="name@company.com"
-                            required
-                            className=" text-black w-full p-2 sm:p-3 md:p-4 lg:p-5 border rounded-lg focus:ring-primary-600 focus:border-primary-600"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 font-medium text-white" disabled={loading}>
-                            {loading ? 'Loading' : 'Send magic link'}
-                        </button>
-                    </div>
-                </form>
+        <div className="flex flex-row min-h-screen w-screen">
+            <div className="flex-1 flex flex-col items-center justify-center bg-red-700 pb-40">
+                <img src={logo} alt="Community Logo" className="w-144 h-144" />
+                <div className="-mt-12 text-white text-center">
+                    <h2 className="text-2xl font-semibold">Welcome to Darrel's CommunityConnect</h2>
+                    <p className="mt-2 text-lg">Connect with like-minded people</p>
+                </div>
+            </div>
+            <div className="flex-1 flex items-center justify-center bg-black">
+                <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl   p-4 sm:p-6 md:p-8 lg:p-10 space-y-4">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">
+                        Sign in to your account
+                    </h1>
+                    <form onSubmit={handleLogin} className="space-y-4">
+                        <div>
+                            <label htmlFor="email" className="block mb-2 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-100">
+                                Your email
+                            </label>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="name@company.com"
+                                required
+                                className="w-full h-12 px-2 py-1 border-0 rounded-full bg-gray-800 text-gray-400 text-lg focus:outline-none focus:ring-0"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <button
+                                type="submit"
+                                className="w-full h-14 px-2 py-1 border-0 rounded-full bg-white text-black text-lg font-medium focus:outline-none focus:ring-0"
+                                disabled={loading}
+                            >
+                                {loading ? 'Loading' : 'Send magic link'}
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );

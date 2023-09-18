@@ -5,12 +5,18 @@ import Auth from './Auth';
 import Account from './Account';
 import SuccessPage from './SuccessPage';
 import CancelPage from './CancelPage';
+import LandingPage from './LandingPage';
+import AccounUpdatetModal from './AccountUpdateModal';
 import 'antd/dist/reset.css';
 import { Menu } from 'antd'; // Importing Ant Design's Menu component
+import { AccountProvider } from './AccountContext';
+
 
 
 function App() {
   const [session, setSession] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);  // New state variable for controlling the modal visibility
+
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -24,23 +30,30 @@ function App() {
 
   return (
     <Router basename={import.meta.env.PUBLIC_URL}>
-      <div className="flex flex-col h-screen w-screen bg-gray-100">
-        {session && (
-          <Menu mode="horizontal">
-            <Menu.Item key="home"><Link to="/">Home</Link></Menu.Item>
-            <Menu.Item key="success"><Link to="/success">Success</Link></Menu.Item>
-            <Menu.Item key="cancel"><Link to="/cancel">Cancel</Link></Menu.Item>
-          </Menu>
-        )}
-        <div className="flex-grow flex justify-center items-center">
-          <Routes>
-            <Route path="/success" element={<SuccessPage />} />
-            <Route path="/cancel" element={<CancelPage />} />
-            <Route path="/" element={!session ? <Auth /> : <Account key={session.user.id} session={session} />} />
-          </Routes>
+      <AccountProvider session={session}> {/* Wrap your component tree with AccountProvider */}
+        <div className="flex flex-col h-screen w-screen bg-gray-100">
+          {session && (
+            <Menu mode="horizontal" className="flex justify-between">
+              <Menu.Item key="/" onClick={() => setIsModalVisible(true)}><Link to="/">Account</Link></Menu.Item>
+              <Menu.Item key="Spacer" disabled={true} style={{ flex: 1 }}></Menu.Item> {/* This will take up all available space, pushing the next item to the end */}
+              <Menu.Item key="signOut" onClick={() => supabase.auth.signOut()}>
+                Sign Out
+              </Menu.Item>
+            </Menu>
+          )}
+          <div className="flex-grow flex justify-center items-center bg-black">
+            <Routes>
+              <Route path="/success" element={<SuccessPage />} />
+              <Route path="/cancel" element={<CancelPage />} />
+              <Route path="/" element={!session ? <Auth /> : <LandingPage key={session.user.id} session={session} />} />
+            </Routes>
+          </div>
+          {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={setIsModalVisible} />}  {/* AccountModal will only render if isModalVisible is true */}
+
         </div>
-      </div>
+      </AccountProvider>
     </Router>
+
   );
 }
 

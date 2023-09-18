@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
-import { Button, Spin, Card, Typography } from 'antd';
+import { Button, Spin, Card, Typography, Modal } from 'antd';
 
-export default function SubscriptionPage({ session }) {
+const SubscriptionModal = ({ session, visible, onClose, reloadTimer, setReloadTimer }) => {
     const [price, setPrice] = useState(null);
     const [expiresAt, setExpiresAt] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function SubscriptionPage({ session }) {
             setLoading(false);
         };
         fetchPrice();
-    }, [session]);
+    }, [session, reloadTimer]);
 
     const renderer = ({ minutes, seconds }) => (
         <Typography.Text strong>
@@ -35,28 +35,41 @@ export default function SubscriptionPage({ session }) {
         setButtonLoading(false);
     };
 
+    const resetReloadTimer = () => {
+        setReloadTimer(false);
+    };
+
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            {loading ? (
-                <Spin size="large" />
-            ) : (
-                <>
-                    <Card className="mb-6 p-4 w-full max-w-md">
-                        <Typography.Title level={3}>Subscription Price: ${price}</Typography.Title>
-                        <Typography.Text strong>
-                            Expires in: <Countdown date={expiresAt} renderer={renderer} />
-                        </Typography.Text>
-                    </Card>
-                    <Button
-                        type="primary"
-                        className="mt-6 bg-blue-600 text-white hover:bg-blue-700"
-                        loading={buttonLoading}
-                        onClick={handleSubscribe}
-                    >
-                        Subscribe Now
-                    </Button>
-                </>
-            )}
-        </div>
+        <Modal
+            title="Subscription"
+            open={visible}
+            onCancel={() => { onClose(); resetReloadTimer(); }}
+            footer={null}
+        >
+            <div className="flex flex-col items-center justify-center">
+                {loading ? (
+                    <Spin size="large" />
+                ) : (
+                    <>
+                        <Card className="mb-6 p-4 w-full max-w-md">
+                            <Typography.Title level={3}>Subscription Price: ${price}</Typography.Title>
+                            <Typography.Text strong>
+                                    Expires in: <Countdown date={expiresAt} renderer={renderer} onCancel={() => { onClose(); resetReloadTimer(); }}/>
+                            </Typography.Text>
+                        </Card>
+                        <Button
+                            type="primary"
+                            className="mt-6 bg-blue-600 text-white hover:bg-blue-700"
+                            loading={buttonLoading}
+                            onClick={handleSubscribe}
+                        >
+                            Subscribe Now
+                        </Button>
+                    </>
+                )}
+            </div>
+        </Modal>
     );
-}
+};
+
+export default SubscriptionModal;
