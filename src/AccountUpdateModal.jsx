@@ -5,7 +5,7 @@ import { useAccount } from './AccountContext';
 
 
 
-const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
+const AccountUpdateModal = ({ session, isVisible, setVisible, fetchAccountInfo, setFetchAccountInfo }) => {
     // const [visible, setVisible] = useState(false);
     const [okButtonDisabled, setOkButtonDisabled] = useState(true);
     const { accountData, setAccountData } = useAccount();
@@ -46,6 +46,8 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     // }, [session]);
 
     useEffect(() => {
+        if (!fetchAccountInfo) return;
+
         if (isVisible && accountData) {
             console.log('account data', accountData);
             form.setFieldsValue({
