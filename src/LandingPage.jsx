@@ -30,6 +30,11 @@ const LandingPage = ({ session }) => {
                 .eq('active', 'TRUE')
                 .single();
 
+            if (error) {
+                console.error('Error fetching subscription:', error);
+                setIsSubscribed(false);
+                return;
+            }
 
             if (data && data.active) {
                 console.log('data_7', data);
@@ -37,7 +42,6 @@ const LandingPage = ({ session }) => {
             } else {
                 setIsSubscribed(false);
                 console.log('data_7', data);
-
             }
         }
 
