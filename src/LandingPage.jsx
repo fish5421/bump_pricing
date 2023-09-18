@@ -31,7 +31,9 @@ const LandingPage = ({ session }) => {
                 .single();
 
             if (error) {
-                console.error('Error fetching subscription:', error);
+                if (process.env.NODE_ENV !== 'production') {
+                    console.error('Error fetching subscription:', error);
+                }
                 setIsSubscribed(false);
                 return;
             }
