@@ -46,7 +46,6 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     // }, [session]);
 
     useEffect(() => {
-        if (!fetchAccountInfo) return;
 
         if (isVisible && accountData) {
             console.log('account data', accountData);
@@ -56,9 +55,8 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
                 business_name: accountData.business_name
             });
             setVisible(true);
-            setFetchAccountInfo(false);
         }
-    }, [isVisible, accountData, fetchAccountInfo, setFetchAccountInfo]);
+    }, [isVisible, accountData]);
 
 
 
