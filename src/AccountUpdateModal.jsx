@@ -56,8 +56,9 @@ const AccountUpdateModal = ({ session, isVisible, setVisible, fetchAccountInfo, 
                 business_name: accountData.business_name
             });
             setVisible(true);
+            setFetchAccountInfo(false);
         }
-    }, [isVisible, accountData]);
+    }, [isVisible, accountData, fetchAccountInfo, setFetchAccountInfo]);
 
 
 
