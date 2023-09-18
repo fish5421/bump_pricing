@@ -5,7 +5,7 @@ import { useAccount } from './AccountContext';
 
 
 
-const AccountUpdateModal = ({ session, isVisible, setVisible, fetchAccountInfo, setFetchAccountInfo }) => {
+const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     // const [visible, setVisible] = useState(false);
     const [okButtonDisabled, setOkButtonDisabled] = useState(true);
     const { accountData, setAccountData } = useAccount();
