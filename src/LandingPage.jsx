@@ -42,7 +42,7 @@ const LandingPage = ({ session }) => {
         }
 
         fetchSubscription();
-    }, [session]);
+    }, []);
 
     const handleSubscriptionClick = async () => {
         if (isSubscribed) {
