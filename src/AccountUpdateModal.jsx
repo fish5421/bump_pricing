@@ -9,12 +9,10 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     // const [visible, setVisible] = useState(false);
     const [okButtonDisabled, setOkButtonDisabled] = useState(true);
     const { accountData, setAccountData } = useAccount();
+    const [dataFetched, setDataFetched] = useState(false);                                                                                                                                                                                                                                                            
+
 
     const [form] = Form.useForm();
-
-    console.log('account update modal');
-    console.log('account data', accountData);
-
     // useEffect(() => {
     //     const fetchAccountInfo = async () => {
 
@@ -47,16 +45,20 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
 
     useEffect(() => {
 
-        if (isVisible && accountData) {
+        if (isVisible && accountData && !dataFetched) {                                                                                                                                                                                                                                                               
             console.log('account data', accountData);
+            console.log(dataFetched);
+
             form.setFieldsValue({
                 full_name: accountData.username,
                 email: accountData.email,
                 business_name: accountData.business_name
             });
             setVisible(true);
+            setDataFetched(true);                                                                                                                                                                                                                                                                                     
+
         }
-    }, [isVisible, accountData]);
+    }, [isVisible, accountData, dataFetched]);
 
 
 
