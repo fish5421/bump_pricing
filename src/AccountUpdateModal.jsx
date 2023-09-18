@@ -59,13 +59,10 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
 
 
 
-    const validateFields = async () => {
-        try {
-            await form.validateFields(['full_name', 'email']);
-            setOkButtonDisabled(false);
-        } catch (error) {
-            setOkButtonDisabled(true);
-        }
+    const validateFields = () => {
+        const errors = form.getFieldsError(['full_name', 'email']);
+        const hasErrors = errors.some(error => error.errors.length > 0);
+        setOkButtonDisabled(hasErrors);
     };
 
     const handleOk = async () => {
