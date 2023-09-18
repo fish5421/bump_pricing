@@ -52,7 +52,6 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
                 email: accountData.email,
                 business_name: accountData.business_name
             });
-            setVisible(true);
             setDataFetched(true);                                                                                                                                                                                                                                                                                     
 
         }
