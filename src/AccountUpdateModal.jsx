@@ -46,9 +46,7 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     useEffect(() => {
 
         if (isVisible && accountData && !dataFetched) {                                                                                                                                                                                                                                                               
-            console.log('account data', accountData);
-            console.log(dataFetched);
-
+      
             form.setFieldsValue({
                 full_name: accountData.username,
                 email: accountData.email,
@@ -102,7 +100,7 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
             onOk={handleOk}
             onCancel={handleCancel}
             footer={[
-                <Button key="ok" type="primary" onClick={handleOk}>
+                <Button className='bg-blue-500' key="ok" type="primary" onClick={handleOk}>
                     OK
                 </Button>,
             ]}
