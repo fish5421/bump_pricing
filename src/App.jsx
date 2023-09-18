@@ -36,7 +36,7 @@ function App() {
           {session && (
             <Menu mode="horizontal" className="flex justify-between">
               <Menu.Item key="/" onClick={() => { setIsModalVisible(true); }}><Link to="/">Account</Link></Menu.Item>
-              {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={setIsModalVisible} fetchAccountInfo={fetchAccountInfo} setFetchAccountInfo={setFetchAccountInfo} />}
+              {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={setIsModalVisible}  />}
               <Menu.Item key="Spacer" disabled={true} style={{ flex: 1 }}></Menu.Item> {/* This will take up all available space, pushing the next item to the end */}
               <Menu.Item key="signOut" onClick={() => supabase.auth.signOut()}>
                 Sign Out
