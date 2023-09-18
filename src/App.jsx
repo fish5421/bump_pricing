@@ -16,6 +16,7 @@ import { AccountProvider } from './AccountContext';
 function App() {
   const [session, setSession] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);  // New state variable for controlling the modal visibility
+  const [fetchAccountInfo, setFetchAccountInfo] = useState(false); // New state variable for fetching account info
 
 
   useEffect(() => {
