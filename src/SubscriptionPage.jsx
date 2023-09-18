@@ -9,16 +9,18 @@ const SubscriptionModal = ({ session, visible, onClose, reloadTimer, setReloadTi
     const [buttonLoading, setButtonLoading] = useState(false);
 
     useEffect(() => {
-        const fetchPrice = async () => {
-            setLoading(true);
-            const response = await fetch(`https://4681hp1c5f.execute-api.us-east-1.amazonaws.com/default/myCocreateGetPrice?user_id=${session.user.id}`);
-            const data = await response.json();
-            setPrice(data.price);
-            const expiryDate = new Date(data.reserved_until);
-            setExpiresAt(expiryDate);
-            setLoading(false);
-        };
-        fetchPrice();
+        if (reloadTimer) {
+            const fetchPrice = async () => {
+                setLoading(true);
+                const response = await fetch(`https://4681hp1c5f.execute-api.us-east-1.amazonaws.com/default/myCocreateGetPrice?user_id=${session.user.id}`);
+                const data = await response.json();
+                setPrice(data.price);
+                const expiryDate = new Date(data.reserved_until);
+                setExpiresAt(expiryDate);
+                setLoading(false);
+            };
+            fetchPrice();
+        }
     }, [session, reloadTimer]);
 
     const renderer = ({ minutes, seconds }) => (
