@@ -16,7 +16,7 @@ import { AccountProvider } from './AccountContext';
 function App() {
   const [session, setSession] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);  // New state variable for controlling the modal visibility
-  const [fetchAccountInfo, setFetchAccountInfo] = useState(false); // New state variable for fetching account info
+  const [selectedMenuKey, setSelectedMenuKey] = useState(''); // New state variable for controlling the active menu item                                                                                                                                                                                              
 
 
   useEffect(() => {
@@ -34,9 +34,9 @@ function App() {
       <AccountProvider session={session}> {/* Wrap your component tree with AccountProvider */}
         <div className="flex flex-col h-screen w-screen bg-gray-100">
           {session && (
-            <Menu mode="horizontal" className="flex justify-between">
-              <Menu.Item key="/" onClick={() => { setIsModalVisible(true); }}><Link to="/">Account</Link></Menu.Item>
-              {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={setIsModalVisible}  />}
+            <Menu mode="horizontal" className="flex justify-between" selectedKeys={[selectedMenuKey]}>                                                                                                                                                                                                                
+              <Menu.Item key="account" onClick={() => { setIsModalVisible(true); setSelectedMenuKey('account'); }}><Link to="/">Account</Link></Menu.Item>                                                                                                                                                            
+              {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={(isVisible) => { setIsModalVisible(isVisible); if (!isVisible) setSelectedMenuKey(''); }} />}                                                                                                          
               <Menu.Item key="Spacer" disabled={true} style={{ flex: 1 }}></Menu.Item> {/* This will take up all available space, pushing the next item to the end */}
               <Menu.Item key="signOut" onClick={() => supabase.auth.signOut()}>
                 Sign Out
@@ -50,7 +50,7 @@ function App() {
               <Route path="/" element={!session ? <Auth /> : <LandingPage key={session.user.id} session={session} />} />
             </Routes>
           </div>
-          {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={setIsModalVisible} />}  {/* AccountModal will only render if isModalVisible is true */}
+          {isModalVisible && <AccounUpdatetModal session={session} isVisible={isModalVisible} setVisible={(isVisible) => { setIsModalVisible(isVisible); if (!isVisible) setSelectedMenuKey(''); }} />}                                                                                                               
 
         </div>
       </AccountProvider>

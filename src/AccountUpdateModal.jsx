@@ -8,7 +8,7 @@ import { useAccount } from './AccountContext';
 const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
     // const [visible, setVisible] = useState(false);
     const [okButtonDisabled, setOkButtonDisabled] = useState(true);
-    const { accountData, setAccountData } = useAccount();
+    const { accountData, setAccountData, updateAccountData } = useAccount();
     const [dataFetched, setDataFetched] = useState(false);                                                                                                                                                                                                                                                            
 
 
@@ -82,6 +82,8 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
         if (error) {
             alert(error.message);
         }
+        await updateAccountData();
+
         setVisible(false);
     };
 
@@ -97,7 +99,7 @@ const AccountUpdateModal = ({ session, isVisible, setVisible }) => {
             onCancel={handleCancel}
             footer={[
                 <Button className='bg-blue-500' key="ok" type="primary" onClick={handleOk}>
-                    OK
+                    Save
                 </Button>,
             ]}
         >

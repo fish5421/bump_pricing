@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form, Input } from 'antd';
 import { supabase } from './supabaseClient';
+import { useAccount } from './AccountContext';
 // import { set } from 'animejs';
 
 const AccountModal = ({ session }) => {
@@ -9,6 +10,7 @@ const AccountModal = ({ session }) => {
     const [textValid, setTextValid] = useState(false);
     const [submitDisabled, setSubmitDisabled] = useState(true);
     const [form] = Form.useForm();
+    const { updateAccountData } = useAccount();
 
     const validateForm = () => {
         const formValid = emailValid && textValid;
@@ -32,6 +34,7 @@ const AccountModal = ({ session }) => {
     }, [emailValid, textValid]);
 
     useEffect(() => {
+
         const fetchAccountInfo = async () => {
 
             const { user } = session;
@@ -79,12 +82,13 @@ const AccountModal = ({ session }) => {
         if (error) {
             alert(error.message);
         }
+        await updateAccountData();
         setIsVisible(false);
     };
 
     return (
         <Modal
-            title="Account Information"
+            title="Welcome! Please complete your profile"
             open={isVisible}
             closable={false}
             maskClosable={false}
