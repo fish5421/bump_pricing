@@ -4,7 +4,7 @@ import SubscriptionPage from './SubscriptionPage';
 import AccountModal from './AccountModal'; // Import the AccountModal component
 import AccountUpdateModal from './AccountUpdateModal';
 import { supabase } from './supabaseClient';
-import { sidephoto } from "../src/assets/pexels-rfstudio-3810792.jpg"
+import sidephoto from "../src/assets/pexels-rfstudio-3810792.jpg";
 
 
 
