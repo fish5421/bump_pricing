@@ -30,7 +30,7 @@ export default function Auth() {
             <div className="flex-1 flex flex-col items-center justify-center bg-red-700 pb-40">
                 <img src={logo} alt="Community Logo" className="w-144 h-144" />
                 <div className="-mt-12 text-white text-center">
-                    <h2 className="text-2xl font-semibold">Welcome to Darrel's CommunityConnect</h2>
+                    <h2 className="text-2xl font-semibold">Join Darrel’s Inner Circle: Your Launchpad to Startup Success</h2>
                     <p className="mt-2 text-lg">Connect with like-minded people</p>
                 </div>
             </div>
