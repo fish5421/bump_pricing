@@ -63,7 +63,7 @@ const LandingPage = ({ session }) => {
 
     return (
         <>
-            <div className="flex h-full py-12 gap-x-42">
+            <div className="flex h-full py-12 gap-x-10">
                 <SubscriptionPage
                     session={session}
                     visible={showSubscriptionPage}
@@ -72,24 +72,21 @@ const LandingPage = ({ session }) => {
                     setReloadTimer={setReloadTimer}
                 />
                 <AccountModal session={session} />
-                {/* <AccountUpdateModal session={session} /> */}
 
                 {/* Left side with Text and CTA */}
-                <div className="flex flex-col justify-between w-1/2 p-10 bg-black text-gray-100">
+                <div className="flex flex-col justify-between w-1/2 p-10 bg-gray-900 text-gray-100 rounded-lg">
                     <div>
-                        <h1 className="text-5xl font-bold">Join Darrel's Inner Circle: Your Launchpad to Startup Success</h1>
-                        <h2 className="text-xl mt-4">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.
-                            Kickstart your journey in Darrel's Inner Circle, a paid community dedicated to equipping ambitious leaders like yourself to success.</h2>
-
-                        <ul className="list-disc list-inside mt-4">
-                            <li className="text"><strong className="font-extrabold">Personalized Guidance</strong>: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do’s and don’ts, and steer your way towards success.</li>
-                            <li className="text"><strong className="font-extrabold">Valuable Connections</strong>: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
-                            <li className="text"><strong className="font-extrabold">Latest Industry Trends</strong>: Stay updated with the newest trends and strategies that can set you apart in your industry.</li>
-                            <li className="text"><strong className="font-extrabold">Investor Insights</strong>: Gain an insider’s view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
+                        <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
+                        <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
+                        <p className="text-xl mb-6">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.</p>
+                        <ul className="list-disc list-inside mt-4 text-lg space-y-2">
+                            <li><strong className="font-extrabold">Personalized Guidance</strong>: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do’s and don’ts, and steer your way towards success.</li>
+                            <li><strong className="font-extrabold">Valuable Connections</strong>: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
+                            <li><strong className="font-extrabold">Latest Industry Trends</strong>: Stay updated with the newest trends and strategies that can set you apart in your industry.</li>
+                            <li><strong className="font-extrabold">Investor Insights</strong>: Gain an insider’s view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
                         </ul>
-
-                        <div className="mt-6">
-                            <strong className="text-md font-semibold">Special Bump Subscription Offer & Longevity Discounting</strong>
+                        <div className="mt-8 text-lg">
+                            <strong className="text-xl font-semibold text-yellow-400">Special Bump Subscription Offer & Longevity Discounting</strong>
                             <p className="text-sm mt-2">
                                 We’re kicking things off with a special subscription offer. The first subscriber gets in at just $10/month, and the price increases by $10 for each new subscriber. Additionally as others exit the community your price gets bumped down, rewarding you for sticking with us.
                             </p>
@@ -99,14 +96,14 @@ const LandingPage = ({ session }) => {
                         </div>
                     </div>
                     <button
-                        className="border-0 rounded-full bg-red-600 text-white text-lg px-8 py-4 font-sans focus:outline-none"
+                        className="mt-8 text-xl font-semibold bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-10 py-4 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-opacity-50"
                         onClick={handleSubscriptionClick}>
                         {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
                     </button>
                 </div>
 
                 {/* Right side with Image */}
-                <div className="w-1/2">
+                <div className="w-1/2 rounded-lg overflow-hidden">
                     <img
                         src="https://picsum.photos/400/300"
                         alt="Random"
@@ -114,6 +111,7 @@ const LandingPage = ({ session }) => {
                     />
                 </div>
             </div>
+
         </>
     );
 };
