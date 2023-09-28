@@ -4,6 +4,7 @@ import SubscriptionPage from './SubscriptionPage';
 import AccountModal from './AccountModal'; // Import the AccountModal component
 import AccountUpdateModal from './AccountUpdateModal';
 import { supabase } from './supabaseClient';
+import { sidephoto } from "../src/assets/pexels-rfstudio-3810792.jpg"
 
 
 
@@ -108,7 +109,7 @@ const LandingPage = ({ session }) => {
                 {/* Right side with Image */}
                 <div className="w-1/2 rounded-lg overflow-hidden">
                     <img
-                        src="https://picsum.photos/400/300"
+                        src={sidephoto}
                         alt="Random"
                         className="h-full w-full object-cover rounded-lg"
                     />
