@@ -87,10 +87,10 @@ const LandingPage = ({ session }) => {
                         </ul>
                         <div className="mt-8 text-lg">
                             <strong className="text-xl font-semibold text-yellow-400">Special Bump Subscription Offer & Longevity Discounting</strong>
-                            <p className="text-sm mt-2">
+                            <p className="text-md mt-2">
                                 We’re kicking things off with a special subscription offer. The first subscriber gets in at just $10/month, and the price increases by $10 for each new subscriber. Additionally as others exit the community your price gets bumped down, rewarding you for sticking with us.
                             </p>
-                            <p className="text-sm mt-2">
+                            <p className="text-md mt-2">
                                 This is a top-tier offering, priced way below the usual $500 monthly fee.
                             </p>
                         </div>
@@ -100,6 +100,9 @@ const LandingPage = ({ session }) => {
                         onClick={handleSubscriptionClick}>
                         {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
                     </button>
+                    <p className="mt-4 text-lg text-yellow-300">
+                        The earlier you subscribe, the less you pay. It's a golden chance to elevate your success with guidance from a veteran, at a price that's affordable for everyone.
+                    </p>
                 </div>
 
                 {/* Right side with Image */}
