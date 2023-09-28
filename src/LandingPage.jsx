@@ -78,17 +78,17 @@ const LandingPage = ({ session }) => {
                 <div className="flex flex-col justify-between w-1/2 p-10 bg-black text-gray-100">
                     <div>
                         <h1 className="text-5xl font-bold">Join Darrel's Inner Circle: Your Launchpad to Startup Success</h1>
-                        <h2 className="text-xl mt-4">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others. 
-                        Kickstart your journey in Darrel's Inner Circle, a paid community dedicated to equipping ambitious leaders like yourself to success.</h2>
-                        <ul className="list-disc list-inside mt-4">
-                            <li className="text-sm">Exclusive Investment Tips</li>
-                            <li className="text-sm">1-on-1 Mentoring Sessions</li>
-                            <li className="text-sm">Networking with Industry Leaders</li>
-                            <li className="text-sm">Access to Early-stage Investment Opportunities</li>
-                            <li className="text-sm">Startup Templates and Resources</li>
-                        </ul>
-                        <p className="text-md mb-4 mt-10"><span className="font-bold">Special Bump Pricing:</span> The first user to sign up gets the subscription at just $1, and the price will increase from there.</p>
+                        <h2 className="text-xl mt-4">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.
+                            Kickstart your journey in Darrel's Inner Circle, a paid community dedicated to equipping ambitious leaders like yourself to success.</h2>
 
+                        <ul className="list-disc list-inside mt-4">
+                            <li className="text-sm italic font-semibold">Personalized Guidance: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do's and don'ts, and steer your way towards success.</li>
+                            <li className="text-sm italic font-semibold">Valuable Connections: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
+                            <li className="text-sm italic font-semibold">Latest Industry Trends: Stay updated with the newest trends and strategies that can set you apart in your industry.</li>
+                            <li className="text-sm italic font-semibold">Investor Insights: Gain an insider's view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
+                        </ul>
+
+                        <p className="text-md mb-4 mt-10"><span className="font-bold">Special Bump Pricing:</span> The first user to sign up gets the subscription at just $1, and the price will increase from there.</p>
                     </div>
                     <button
                         className="border-0 rounded-full bg-red-600 text-white text-lg px-8 py-4 font-sans focus:outline-none"
