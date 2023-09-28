@@ -64,9 +64,9 @@ const LandingPage = ({ session }) => {
     return (
         <>
             <div className="flex h-full py-12 gap-x-42">
-                <SubscriptionPage 
+                <SubscriptionPage
                     session={session}
-                    visible={showSubscriptionPage} 
+                    visible={showSubscriptionPage}
                     onClose={() => setShowSubscriptionPage(false)}
                     reloadTimer={reloadTimer}
                     setReloadTimer={setReloadTimer}
@@ -88,7 +88,15 @@ const LandingPage = ({ session }) => {
                             <li className="text"><strong className="font-extrabold">Investor Insights</strong>: Gain an insider’s view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
                         </ul>
 
-                        <p className="text-md mb-4 mt-10"><span className="font-bold">Special Bump Pricing:</span> The first user to sign up gets the subscription at just $1, and the price will increase from there.</p>
+                        <div className="mt-6">
+                            <strong className="text-md font-semibold">Special Bump Subscription Offer & Longevity Discounting</strong>
+                            <p className="text-sm mt-2">
+                                We’re kicking things off with a special subscription offer. The first subscriber gets in at just $10/month, and the price increases by $10 for each new subscriber. Additionally as others exit the community your price gets bumped down, rewarding you for sticking with us.
+                            </p>
+                            <p className="text-sm mt-2">
+                                This is a top-tier offering, priced way below the usual $500 monthly fee.
+                            </p>
+                        </div>
                     </div>
                     <button
                         className="border-0 rounded-full bg-red-600 text-white text-lg px-8 py-4 font-sans focus:outline-none"
