@@ -77,8 +77,9 @@ const LandingPage = ({ session }) => {
                 {/* Left side with Text and CTA */}
                 <div className="flex flex-col justify-between w-1/2 p-10 bg-black text-gray-100">
                     <div>
-                        <h1 className="text-5xl font-bold">Join Darrel's Discord Community</h1>
-                        <h2 className="text-xl mt-4">Empower Your Startup Journey</h2>
+                        <h1 className="text-5xl font-bold">Join Darrel's Inner Circle: Your Launchpad to Startup Success</h1>
+                        <h2 className="text-xl mt-4">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others. 
+                        Kickstart your journey in Darrel's Inner Circle, a paid community dedicated to equipping ambitious leaders like yourself to success.</h2>
                         <ul className="list-disc list-inside mt-4">
                             <li className="text-sm">Exclusive Investment Tips</li>
                             <li className="text-sm">1-on-1 Mentoring Sessions</li>
