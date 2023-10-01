@@ -19,9 +19,14 @@ const LandingPage = ({ session }) => {
     useEffect(() => {
         async function fetchSubscription() {
             const { user } = session;
-            const cleanedUserId = user.id.trim();  // Trim whitespaces and newlines
-            console.log('cleanedUserId', cleanedUserId);
+            if (!user || !user.id) {
+                console.log("No user found in session");
+                setIsSubscribed(false);
+                return;
+            }
 
+            const cleanedUserId = user.id.trim();
+            console.log('cleanedUserId', cleanedUserId);
 
             const { data, error } = await supabase
                 .from('subscriptions')
@@ -30,14 +35,11 @@ const LandingPage = ({ session }) => {
                 .eq('active', 'TRUE')
                 .maybeSingle();
 
-
-            // if (error) {
-            //     if (process.env.NODE_ENV !== 'production') {
-            //         console.error('Error fetching subscription:', error);
-            //     }
-            //     setIsSubscribed(false);
-            //     return;
-            // }
+            if (error) {
+                console.error('Error fetching subscription:', error);
+                setIsSubscribed(false);
+                return;
+            }
 
             if (data && data.active) {
                 console.log('data try', data);
@@ -50,6 +52,7 @@ const LandingPage = ({ session }) => {
 
         fetchSubscription();
     }, []);
+
 
     const handleSubscriptionClick = async () => {
         if (isSubscribed) {
