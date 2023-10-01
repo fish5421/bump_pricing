@@ -29,6 +29,8 @@ const LandingPage = ({ session }) => {
                 .eq('active', 'TRUE')
                 .maybeSingle();
 
+            console.log('data try', data);
+
             if (error) {
                 if (process.env.NODE_ENV !== 'production') {
                     console.error('Error fetching subscription:', error);
