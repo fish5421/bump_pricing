@@ -20,6 +20,7 @@ const LandingPage = ({ session }) => {
         async function fetchSubscription() {
             const { user } = session;
             const cleanedUserId = user.id.trim();  // Trim whitespaces and newlines
+            console.log('cleanedUserId', cleanedUserId);
 
 
             const { data, error } = await supabase
@@ -29,7 +30,6 @@ const LandingPage = ({ session }) => {
                 .eq('active', 'TRUE')
                 .maybeSingle();
 
-            console.log('data try', data);
 
             if (error) {
                 if (process.env.NODE_ENV !== 'production') {
@@ -40,8 +40,10 @@ const LandingPage = ({ session }) => {
             }
 
             if (data && data.active) {
+                console.log('data try', data);
                 setIsSubscribed(true);
             } else {
+                console.log('data catch', data);
                 setIsSubscribed(false);
             }
         }
