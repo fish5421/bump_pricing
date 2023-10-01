@@ -31,13 +31,13 @@ const LandingPage = ({ session }) => {
                 .maybeSingle();
 
 
-            if (error) {
-                if (process.env.NODE_ENV !== 'production') {
-                    console.error('Error fetching subscription:', error);
-                }
-                setIsSubscribed(false);
-                return;
-            }
+            // if (error) {
+            //     if (process.env.NODE_ENV !== 'production') {
+            //         console.error('Error fetching subscription:', error);
+            //     }
+            //     setIsSubscribed(false);
+            //     return;
+            // }
 
             if (data && data.active) {
                 console.log('data try', data);
