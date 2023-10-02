@@ -71,7 +71,7 @@ const LandingPage = ({ session }) => {
 
     return (
         <>
-            <div className="flex h-full py-12 gap-x-10">
+            <div className="flex flex-col md:flex-row h-full py-12 md:gap-x-10">
                 <SubscriptionPage
                     session={session}
                     visible={showSubscriptionPage}
@@ -82,7 +82,7 @@ const LandingPage = ({ session }) => {
                 <AccountModal session={session} />
 
                 {/* Left side with Text and CTA */}
-                <div className="flex flex-col justify-between w-1/2 p-10 bg-gray-900 text-gray-100 rounded-lg">
+                <div className="flex flex-col justify-between w-full md:w-1/2 p-4 md:p-10 bg-gray-900 text-gray-100 rounded-lg">
                     <div>
                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
                         <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
@@ -114,7 +114,7 @@ const LandingPage = ({ session }) => {
                 </div>
 
                 {/* Right side with Image */}
-                <div className="w-1/2 rounded-lg overflow-hidden">
+                <div className="hidden md:block md:w-1/2 rounded-lg overflow-hidden">
                     <img
                         src={sidephoto}
                         alt="Random"
