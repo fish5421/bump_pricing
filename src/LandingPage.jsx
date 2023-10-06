@@ -58,7 +58,8 @@ const LandingPage = ({ session }) => {
     const handleSubscriptionClick = async () => {
         if (isSubscribed) {
             console.log('cancel now');
-            window.location.href = 'https://billing.stripe.com/p/login/test_28oeVY8Uq6d410c9AA'
+            // window.location.href = 'https://billing.stripe.com/p/login/test_28oeVY8Uq6d410c9AA'
+            window.location.href = 'https://billing.stripe.com/p/login/28o4iGfVDgQ08Fi144'
 
         } else {
             console.log('set now');
