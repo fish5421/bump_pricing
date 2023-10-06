@@ -91,7 +91,7 @@ const LandingPage = ({ session }) => {
                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
                         <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
                         <p className="text-xl mb-6">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.</p>
-                        <div>
+                        <div className='flex items-center justify-center'>
                             <button
                                 className="mt-8 text-xl font-semibold bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-10 py-4 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-opacity-50"
                                 onClick={handleSubscriptionClick}>
@@ -99,10 +99,10 @@ const LandingPage = ({ session }) => {
                             </button>
                         </div>
                         <ul className="list-disc list-inside mt-4 text-lg space-y-2">
-                            <li><strong className="font-extrabold">Personalized Guidance</strong>: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do’s and don’ts, and steer your way towards success.</li>
-                            <li><strong className="font-extrabold">Valuable Connections</strong>: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
-                            <li><strong className="font-extrabold">Latest Industry Trends</strong>: Stay updated with the newest trends and strategies that can set you apart in your industry.</li>
-                            <li><strong className="font-extrabold">Investor Insights</strong>: Gain an insider’s view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
+                            <li><strong className="font-extrabold underline text-xl">Personalized Guidance</strong>: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do’s and don’ts, and steer your way towards success.</li>
+                            <li><strong className="font-extrabold underline text-xl">Valuable Connections</strong>: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
+                            <li><strong className="font-extrabold underline text-xl">Latest Industry Trends</strong>: Stay updated with the newest trends and strategies that can set you apart in your industry.</li>
+                            <li><strong className="font-extrabold underline text-xl">Investor Insights</strong>: Gain an insider’s view into what investors seek and how investors think so you can leverage that knowledge to your advantage.</li>
                         </ul>
                         <div className="mt-8 text-lg">
                             <strong className="text-xl font-semibold text-yellow-400">Special Bump Subscription Offer & Longevity Discounting</strong>
