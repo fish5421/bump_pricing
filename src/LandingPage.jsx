@@ -93,7 +93,7 @@ const LandingPage = ({ session }) => {
                         <p className="text-xl mb-6">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.</p>
                         <div className='flex items-center justify-center'>
                             <button
-                                className="mt-8 text-xl font-semibold bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-10 py-4 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-opacity-50"
+                                className="text-xl font-semibold bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-10 py-4 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-opacity-50"
                                 onClick={handleSubscriptionClick}>
                                 {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
                             </button>
