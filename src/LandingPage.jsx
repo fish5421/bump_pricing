@@ -85,7 +85,9 @@ const LandingPage = ({ session }) => {
                 {/* Left side with Text and CTA */}
                 <div className="flex flex-col justify-between w-full md:w-1/2 p-4 md:p-10 bg-gray-900 text-gray-100 rounded-lg">
                     <div>
-                        <img src={createrPhoto} alt="Creator Photo" className="object-cover rounded-lg" />
+                        <div>
+                            <img src={createrPhoto} alt="Creator Photo" className="object-cover rounded-lg" />
+                        </div>
                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
                         <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
                         <p className="text-xl mb-6">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.</p>
