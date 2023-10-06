@@ -85,12 +85,17 @@ const LandingPage = ({ session }) => {
                 {/* Left side with Text and CTA */}
                 <div className="flex flex-col justify-between w-full md:w-1/2 p-4 md:p-10 bg-gray-900 text-gray-100 rounded-lg">
                     <div>
-                        <div>
+                        <div className='flex items-center justify-center pb-9'>
                             <img src={createrPhoto} alt="Creator Photo" className="object-cover rounded-lg" />
                         </div>
                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
                         <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
                         <p className="text-xl mb-6">Darrel Frater is a seasoned venture capitalist and a three-time founder with a passion for serving others.</p>
+                        <button
+                            className="mt-8 text-xl font-semibold bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-10 py-4 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-opacity-50"
+                            onClick={handleSubscriptionClick}>
+                            {isSubscribed ? 'Cancel Subscription' : 'Subscribe Now'}
+                        </button>
                         <ul className="list-disc list-inside mt-4 text-lg space-y-2">
                             <li><strong className="font-extrabold">Personalized Guidance</strong>: Get direct mentorship from Darrel, leverage his startup startup and VC experience, learn the do’s and don’ts, and steer your way towards success.</li>
                             <li><strong className="font-extrabold">Valuable Connections</strong>: Network with a community of like-minded individuals, share experiences, and create opportunities together.</li>
