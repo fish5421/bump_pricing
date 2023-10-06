@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
     "@supabase/supabase-js": "^2.33.1",
+    "@vercel/analytics": "^1.1.0",
     "animejs": "^3.2.1",
     "antd": "^5.8.5",
     "flowbite": "^1.8.1",

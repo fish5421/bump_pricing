@@ -10,6 +10,9 @@ import AccounUpdatetModal from './AccountUpdateModal';
 import 'antd/dist/reset.css';
 import { Menu } from 'antd'; // Importing Ant Design's Menu component
 import { AccountProvider } from './AccountContext';
+import { inject } from '@vercel/analytics';
+
+inject();
 
 
 
