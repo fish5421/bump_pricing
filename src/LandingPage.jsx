@@ -5,7 +5,7 @@ import AccountModal from './AccountModal'; // Import the AccountModal component
 import AccountUpdateModal from './AccountUpdateModal';
 import { supabase } from './supabaseClient';
 import sidephoto from "../src/assets/pexels-rfstudio-3810792.jpg";
-import createrPhoto from "../src/assets/Darrel_photo.png"
+import createrPhoto from "../src/assets/Darrel_photo.png";
 
 
 
@@ -84,7 +84,7 @@ const LandingPage = ({ session }) => {
 
                 {/* Left side with Text and CTA */}
                 <div className="flex flex-col justify-between w-full md:w-1/2 p-4 md:p-10 bg-gray-900 text-gray-100 rounded-lg">
-                    <div>
+                    <div className="flex flex-col justify-center items-center w-full md:w-1/2 p-4 md:p-10 bg-gray-900 text-gray-100 rounded-lg">
                         <img src={createrPhoto} alt="Creator Photo" className="h-96 w-full object-cover rounded-lg" />
                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-400">Join Darrel's Inner Circle</h1>
                         <h2 className="text-2xl font-semibold text-white mb-6">Your Launchpad to Startup Success</h2>
