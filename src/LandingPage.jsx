@@ -110,9 +110,9 @@ const LandingPage = ({ session }) => {
                             <p className="text-md mt-2">
                                 We’re kicking things off with a special subscription offer. The first subscriber gets in at just $10/month, and the price increases by $10 for each new subscriber. Additionally as others exit the community your price gets bumped down, rewarding you for sticking with us.
                             </p>
-                            <p className="text-md mt-2">
+                            {/* <p className="text-md mt-2">
                                 This is a top-tier offering, priced way below the usual $500 monthly fee.
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                     <button
